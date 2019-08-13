@@ -308,15 +308,25 @@ class Main {
       //direction 2 horizontal, 1 vertical
       int x = A[0];
       int y = A[1];
+      boolean placed = false;
     
       if(length == 5){
+        while(placed == false){
+          
+
         if(direction == 2){
           System.out.println("horizontal");
           if(board [9-y][x] != 2 && board[9-y][x+1] != 2 && board[9-y][x+2] != 2 && board[9-y][x-1] != 2 && board[9-y][x-2] != 2){
             for(int o = -2; o < 3; o++){
               board[9-y][x+o] = 2;
             }
+            placed = true;
           }
+          else{
+           reRoll(length);
+
+          }
+         
         }
       
         else if(direction == 1){
@@ -325,13 +335,18 @@ class Main {
             for(int o = -2; o < 3; o++){
               board[9-y+o][x] = 2;
             }
+          placed = true;
           }
-
-        }//end else if
+          else{
+             reRoll(length);
+           }
+        }
         else{
             System.out.println("Failed at length: " + length + "direction: " + direction );
+        //reRoll(length);
         }
-         }      
+      } 
+    }      
         
         
      // }
