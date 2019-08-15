@@ -314,39 +314,39 @@ class Main {
         while(placed == false){
           
 
-        if(direction == 2){
-          System.out.println("horizontal");
-          if(board [9-y][x] != 2 && board[9-y][x+1] != 2 && board[9-y][x+2] != 2 && board[9-y][x-1] != 2 && board[9-y][x-2] != 2){
-            for(int o = -2; o < 3; o++){
-              board[9-y][x+o] = 2;
+          if(direction == 2){
+            System.out.println("horizontal");
+            if(board [9-y][x] != 2 && board[9-y][x+1] != 2 && board[9-y][x+2] != 2 && board[9-y][x-1] != 2 && board[9-y][x-2] != 2){
+              for(int o = -2; o < 3; o++){
+                board[9-y][x+o] = 2;
+              }
+              placed = true;
             }
+            else{
+              int[] x_y_New = reRoll(length);
+              x = x_y_New[0];
+              y = x_y_New[1];
+
+            }
+          
+          }
+        
+          else if(direction == 1){
+              System.out.println("vertical");
+            if(board [9-y][x] != 2 && board[8-y][x] != 2 && board[7-y][x] != 2 && board[10-y][x] != 2 && board[11-y][x] != 2){
+              for(int o = -2; o < 3; o++){
+                board[9-y+o][x] = 2;
+              }
             placed = true;
-          }
-          else{
-            int[] x_y_New = reRoll(length);
-            x = x_y_New[0];
-            y = x_y_New[1];
-
-          }
-         
-        }
-      
-        else if(direction == 1){
-            System.out.println("vertical");
-          if(board [9-y][x] != 2 && board[8-y][x] != 2 && board[7-y][x] != 2 && board[10-y][x] != 2 && board[11-y][x] != 2){
-            for(int o = -2; o < 3; o++){
-              board[9-y+o][x] = 2;
             }
-          placed = true;
-          }
-          else{
-             
-            int[] x_y_New = reRoll(length);
-            x = x_y_New[0];
-            y = x_y_New[1];
+            else{
+              
+              int[] x_y_New = reRoll(length);
+              x = x_y_New[0];
+              y = x_y_New[1];
 
-            
-           }
+              
+            }
         }
         else{
             System.out.println("Failed at length: " + length + "direction: " + direction );
@@ -359,61 +359,118 @@ class Main {
      // }
       
       else if(length == 4){
-        if(direction == 2){
-          System.out.println("horizontal");
-          if(board [9-y][x] != 2 && board[9-y][x+1] != 2 && board[9-y][x+2] != 2 && board[9-y][x+3] != 2){
-            for(int o = 0; o < 4; o++){
-              board[9-y][x+o] = 2;
+        placed = false;
+         while(placed == false){
+          if(direction == 2){
+            System.out.println("horizontal");
+            if(board [9-y][x] != 2 && board[9-y][x+1] != 2 && board[9-y][x+2] != 2 && board[9-y][x+3] != 2){
+              for(int o = 0; o < 4; o++){
+                board[9-y][x+o] = 2;
+              }
+              placed = true;
+              }
+            else{
+              int[] x_y_New = reRoll(length);
+              x = x_y_New[0];
+              y = x_y_New[1];
+
             }
           }
-        }
       
-        else if(direction == 1){
-            System.out.println("vertical");
-          if(board [9-y][x] != 2 && board[8-y][x] != 2 && board[7-y][x] != 2 && board[6-y][x] != 2){
-            for(int o = 0; o < 4; o++){
-              board[9-y+o][x] = 2;
+        
+          else if(direction == 1){
+              System.out.println("vertical");
+            if(board [9-y][x] != 2 && board[8-y][x] != 2 && board[7-y][x] != 2 && board[6-y][x] != 2){
+              for(int o = 0; o < 4; o++){
+                board[9-y+o][x] = 2;
+              }
+              placed = true;
+              }
+              else{
+                int[] x_y_New = reRoll(length);
+                x = x_y_New[0];
+                y = x_y_New[1];
+
+              
             }
-          }
-        } //end if
-      }//end else if of length=4
+          } //end if
+         }
+        }//end else if of length=4
       else if(length == 3){
-        if(direction == 2){
-          System.out.println("horizontal");
-          if(board [9-y][x] != 2 && board[9-y][x+1] != 2 && board[9-y][x-1] !=2){
-            for(int o = 0; o < 3; o++){
-              board[9-y][x+o] = 2;
+          placed = false;
+          while(placed == false){
+            if(direction == 2){
+              System.out.println("horizontal");
+              if(board [9-y][x] != 2 && board[9-y][x+1] != 2 && board[9-y][x+2] !=2){
+                for(int o = 0; o < 3; o++){
+                  board[9-y][x+o] = 2;
+                }
+              placed = true;
+              }
+              else{
+                int[] x_y_New = reRoll(length);
+                x = x_y_New[0];
+                y = x_y_New[1];
+
+              }
+              }
+              
+            
+          
+            else if(direction == 1){
+                System.out.println("vertical");
+              if(board [9-y][x] != 2 && board[8-y][x] != 2 && board[7-y][x] !=2){
+                for(int o = -1; o < 2; o++){
+                  board[9-y+o][x] = 2;
+                }
+              placed = true;
+              }
+              else{
+                int[] x_y_New = reRoll(length);
+                x = x_y_New[0];
+                y = x_y_New[1];
+
+              }  
             }
-          }
-        }
       
-        else if(direction == 1){
-            System.out.println("vertical");
-          if(board [9-y][x] != 2 && board[8-y][x] != 2 && board[10-y][x] !=2){
-            for(int o = 0; o < 3; o++){
-              board[9-y+o][x] = 2;
-            }
-          }
-        } //end if
-      }
+         } 
+      }//end if
       else if(length == 2){
-        if(direction == 2){
-          System.out.println("horizontal");
-          if(board [9-y][x] != 2 && board[9-y][x+1] != 2){
-            for(int o = 0; o < 2; o++){
-              board[9-y][x+o] = 2;
+          placed = false;
+          while(placed = false){
+            
+            if(direction == 2){
+              System.out.println("horizontal");
+              if(board [9-y][x] != 2 && board[9-y][x+1] != 2){
+                for(int o = 0; o < 2; o++){
+                  board[9-y][x+o] = 2;
+                }
+              placed = true;
+              }
+              else{
+                int[] x_y_New = reRoll(length);
+                x = x_y_New[0];
+                y = x_y_New[1];
+
+              }  
+            }
+          
+            else if(direction == 1){
+                System.out.println("vertical");
+              if(board [9-y][x] != 2 && board[8-y][x] != 2){
+                for(int o = 0; o < 2; o++){
+                  board[9-y+o][x] = 2;
+                }
+              placed = true;
+              }
+              else{
+                int[] x_y_New = reRoll(length);
+                x = x_y_New[0];
+                y = x_y_New[1];
+
+              }  
             }
           }
-        }
-      
-        else if(direction == 1){
-            System.out.println("vertical");
-          if(board [9-y][x] != 2 && board[8-y][x] != 2){
-            for(int o = 0; o < 2; o++){
-              board[9-y+o][x] = 2;
-            }
-          }
-        }
       } //end if
 
     }// end checker method
