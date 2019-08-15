@@ -124,7 +124,7 @@ class Main {
               board[9-yInput][xInput] = -1;
               printBoard(board);
               hitCount++;
-              if(hitCount == 4){
+              if(hitCount == 14){
                System.out.println("You shot all the ships! Good job winner!");
                 return board;
               }
@@ -169,7 +169,7 @@ class Main {
             }//end else 
 
           }//end for
-          System.out.println("You have run out of shots! Restart to try again.");
+          System.out.println("You've hit all the ships! it took you "hitCount" shots to win");
           return board;
         }//end if
 
