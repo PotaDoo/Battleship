@@ -169,7 +169,7 @@ class Main {
             }//end else 
 
           }//end for
-          System.out.println("You've hit all the ships! it took you "hitCount" shots to win");
+          System.out.println("Youve hit all the ships in 'hitCount' shots");
           return board;
         }//end if
 
@@ -323,7 +323,9 @@ class Main {
             placed = true;
           }
           else{
-           reRoll(length);
+            int[] x_y_New = reRoll(length);
+            x = x_y_New[0];
+            y = x_y_New[1];
 
           }
          
@@ -338,7 +340,12 @@ class Main {
           placed = true;
           }
           else{
-             reRoll(length);
+             
+            int[] x_y_New = reRoll(length);
+            x = x_y_New[0];
+            y = x_y_New[1];
+
+            
            }
         }
         else{
