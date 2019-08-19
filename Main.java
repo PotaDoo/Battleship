@@ -1,13 +1,7 @@
-/*
-* Title: Battleship
-*
-*
-* Notes: 1 is untouched water, -1 is a hit, 2 is unfound ship, 0 is a miss (hitting water)
-*/
-
 import java.util.*;
 
 class Main {
+
 
   public static Scanner target = new Scanner(System.in);
   public static int xInput;
@@ -78,15 +72,12 @@ class Main {
  /*
  public static int[][] placeShips(int[][] board){ 
    //old single ship placement method
-
     for( int g = 0; g < 9; g++){
       int y = getRandomNumberInRange(0,9);
       int x = getRandomNumberInRange(0,9);
       board[x][y] = 2;
     }
-
   return board; 
-
   }//end Placing ships method
   */
 
@@ -260,7 +251,7 @@ class Main {
       }
       else if(length == 3){
         //ship size 3
-        x = getRandomNumberInRange(1,8);
+        x = getRandomNumberInRange(0,7);
         y = getRandomNumberInRange(0,9);
       }
       else if(length == 4){
@@ -289,7 +280,7 @@ class Main {
       else if(length == 4){
         //ship size 4
         x = getRandomNumberInRange(0,9);
-        y = getRandomNumberInRange(0,6);
+        y = getRandomNumberInRange(3,9);
       }
       else if(length == 5){
         //ship size 5
@@ -489,6 +480,7 @@ class Main {
 
 //***************** END OF PROGRAM ***************
 }//end of Main class
+
 
 
  // 8/6 - Get reroll to work, call on it in checkers and make sure all ships are placing.
