@@ -17,7 +17,7 @@ class Main {
       for(int j = 0; j<10; j++){
         // j columns 1 to 10
         board[i][j] = 1; 
-        //-1 is assigned for ~ (untouched)
+        //1 is assigned for ~ (untouched)
       }//end for
     }//end for
     
@@ -82,7 +82,7 @@ class Main {
   */
 
   private static int getRandomNumberInRange(int min, int max) { 
-
+    System.out.println("Getting Random int");
     if (min >= max) {
       throw new IllegalArgumentException("max must be greater than min");
     }
@@ -207,7 +207,7 @@ class Main {
       if(length == 2){
         //ship size 2 
         x = getRandomNumberInRange(0,9);
-        y = getRandomNumberInRange(0,8);
+        y = getRandomNumberInRange(1,9);
       }
       else if(length == 3){
         //ship size 3
@@ -217,7 +217,7 @@ class Main {
       else if(length == 4){
         //ship size 4
         x = getRandomNumberInRange(0,9);
-        y = getRandomNumberInRange(0,6);
+        y = getRandomNumberInRange(3,9);
       }
       else if(length == 5){
         //ship size 5
@@ -251,7 +251,7 @@ class Main {
       }
       else if(length == 3){
         //ship size 3
-        x = getRandomNumberInRange(0,7);
+        x = getRandomNumberInRange(1,8);
         y = getRandomNumberInRange(0,9);
       }
       else if(length == 4){
@@ -270,7 +270,7 @@ class Main {
       if(length == 2){
         //ship size 2 
         x = getRandomNumberInRange(0,9);
-        y = getRandomNumberInRange(0,8);
+        y = getRandomNumberInRange(1,9);
       }
       else if(length == 3){
         //ship size 3
@@ -314,6 +314,7 @@ class Main {
               placed = true;
             }
             else{
+              System.out.println("Rerolling position...");
               int[] x_y_New = reRoll(length);
               x = x_y_New[0];
               y = x_y_New[1];
@@ -331,7 +332,7 @@ class Main {
             placed = true;
             }
             else{
-              
+              System.out.println("Rerolling position...");
               int[] x_y_New = reRoll(length);
               x = x_y_New[0];
               y = x_y_New[1];
@@ -361,6 +362,7 @@ class Main {
               placed = true;
               }
             else{
+              System.out.println("Rerolling position...");
               int[] x_y_New = reRoll(length);
               x = x_y_New[0];
               y = x_y_New[1];
@@ -378,6 +380,7 @@ class Main {
               placed = true;
               }
               else{
+                System.out.println("Rerolling position...");
                 int[] x_y_New = reRoll(length);
                 x = x_y_New[0];
                 y = x_y_New[1];
@@ -392,13 +395,14 @@ class Main {
           while(placed == false){
             if(direction == 2){
               System.out.println("horizontal");
-              if(board [9-y][x] != 2 && board[9-y][x+1] != 2 && board[9-y][x+2] !=2){
-                for(int o = 0; o < 3; o++){
+              if(board [9-y][x] != 2 && board[9-y][x+1] != 2 && board[9-y][x-1] !=2){
+                for(int o = -1; o < 2; o++){
                   board[9-y][x+o] = 2;
                 }
               placed = true;
               }
               else{
+                System.out.println("Rerolling position...");
                 int[] x_y_New = reRoll(length);
                 x = x_y_New[0];
                 y = x_y_New[1];
@@ -410,13 +414,15 @@ class Main {
           
             else if(direction == 1){
                 System.out.println("vertical");
-              if(board [9-y][x] != 2 && board[8-y][x] != 2 && board[7-y][x] !=2){
+              if(board [9-y][x] != 2 && board[8-y][x] != 2 && board[10-y][x] !=2){
                 for(int o = -1; o < 2; o++){
+                  
                   board[9-y+o][x] = 2;
                 }
               placed = true;
               }
               else{
+                System.out.println("Rerolling position...");
                 int[] x_y_New = reRoll(length);
                 x = x_y_New[0];
                 y = x_y_New[1];
@@ -439,6 +445,7 @@ class Main {
               placed = true;
               }
               else{
+                System.out.println("Rerolling position...");
                 int[] x_y_New = reRoll(length);
                 x = x_y_New[0];
                 y = x_y_New[1];
@@ -448,13 +455,14 @@ class Main {
           
             else if(direction == 1){
                 System.out.println("vertical");
-              if(board [9-y][x] != 2 && board[8-y][x] != 2){
+              if(board [9-y][x] != 2 && board[10-y][x] != 2){
                 for(int o = 0; o < 2; o++){
                   board[9-y+o][x] = 2;
                 }
               placed = true;
               }
               else{
+                System.out.println("Rerolling position...");
                 int[] x_y_New = reRoll(length);
                 x = x_y_New[0];
                 y = x_y_New[1];
