@@ -1,2 +1,2 @@
 # Battleship
-Making battleship on java
+Making battleship in java
