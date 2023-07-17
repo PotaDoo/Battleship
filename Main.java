@@ -106,6 +106,9 @@ public static int[][] fireFunction(int[][] board){
        if( board[boardCheck][boardCheck2] == 2){
        
          for(int g = 4; g > -1; g--){
+
+          // Might want to use a try catch to handle errors from nextInt() like if someone uses anything other than a number.
+          //Heres a link https://www.w3schools.com/java/java_try_catch.asp.
            System.out.println("Select an X coordinate");
            xInput = target.nextInt();
            System.out.println("Now select a Y coordinate");
